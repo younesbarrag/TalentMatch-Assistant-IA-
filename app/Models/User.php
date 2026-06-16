@@ -29,4 +29,19 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function offresEmploi()
+{
+    return $this->hasMany(\App\Models\OffreEmploi::class);
+}
+
+public function candidats()
+{
+    return $this->hasMany(\App\Models\Candidat::class);
+}
+
+public function conversationsAssistants()
+{
+    return $this->hasMany(\App\Models\ConversationAssistant::class);
+}
 }
