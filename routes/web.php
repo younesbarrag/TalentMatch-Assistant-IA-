@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\OffreEmploiController;
+use App\Http\Controllers\AnalyseCandidatController;
+use App\Http\Controllers\CandidatController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -18,6 +20,12 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::resource('offres', OffreEmploiController::class);
+
+    Route::post('/offres/{offre}/candidats', [CandidatController::class, 'store'])
+        ->name('offres.candidats.store');
+
+    Route::get('/analyses/{analyse}', [AnalyseCandidatController::class, 'show'])
+        ->name('analyses.show');
 });
 
 require __DIR__.'/auth.php';

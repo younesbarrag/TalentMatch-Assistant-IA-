@@ -51,12 +51,14 @@ class OffreEmploiController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(OffreEmploi $offre)
-    {
-        Gate::authorize('view', $offre);
+  public function show(OffreEmploi $offre)
+{
+    Gate::authorize('view', $offre);
 
-        return view('offres.show', compact('offre'));
-    }
+    $offre->load(['analyses.candidat']);
+
+    return view('offres.show', compact('offre'));
+}
 
     /**
      * Show the form for editing the specified resource.
