@@ -70,6 +70,9 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('offres.index')" :active="request()->routeIs('offres.*')">
+                {{ __('Mes Offres') }}
+            </x-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->
@@ -98,3 +101,4 @@
         </div>
     </div>
 </nav>
+>

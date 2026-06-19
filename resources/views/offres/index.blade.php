@@ -21,7 +21,12 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     @if($offres->isEmpty())
-                        <p class="text-center py-4">{{ __('Vous n\'avez pas encore créé d\'offres.') }}</p>
+                        <div class="text-center py-12">
+                            <p class="text-gray-500 mb-4">{{ __('Vous n\'avez pas encore créé d\'offres.') }}</p>
+                            <a href="{{ route('offres.create') }}" class="inline-flex items-center px-4 py-2 bg-indigo-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-indigo-700 active:bg-indigo-900 focus:outline-none focus:border-indigo-900 focus:ring ring-indigo-300 transition ease-in-out duration-150">
+                                {{ __('Créer votre première offre') }}
+                            </a>
+                        </div>
                     @else
                         <div class="overflow-x-auto">
                             <table class="min-w-full divide-y divide-gray-200">
